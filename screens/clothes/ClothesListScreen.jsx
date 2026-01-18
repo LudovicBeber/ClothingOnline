@@ -5,7 +5,7 @@ import { useAsyncStorageState } from "../../hooks/useAsyncStorageState";
 import ClothesListRow from "../../components/ClothesListRow";
 import ListSeparator from "../../components/ListSeparator";
 import ListEmpty from "../../components/ListEmpty";
-const ClothesListScreen = (navigation) => {
+const ClothesListScreen = ({navigation}) => {
 
     const [clothes, setClothes] = useState({});
     const [loading, setLoading] = useState(false);

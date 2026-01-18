@@ -1,15 +1,21 @@
-import { StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 
 const ClothesListRow = ({cloth, navigation}) => {
 
+    function handleRowPressed() {
+        navigation.navigate('ClothesDetails', cloth)
+    }
+
     return (
-        <View>
+        <Pressable
+            onPress={handleRowPressed}
+        >
             <Text>{cloth.title}</Text>
             <View style={styles.container_price_rating}>
                 <Text>{cloth.price}</Text>
                 <Text>{cloth.rating.rate}/5</Text>
             </View>
-        </View>
+        </Pressable>
     );
 
 }
