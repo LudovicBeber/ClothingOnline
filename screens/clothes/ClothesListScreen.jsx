@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import { Text, View, StyleSheet, FlatList, Pressable } from "react-native";
 import { fetchAllClothes } from "../../services/clothesService";
 import { useState, useEffect } from "react";
 import { useAsyncStorageState } from "../../hooks/useAsyncStorageState";
@@ -45,6 +45,7 @@ const ClothesListScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
+            <Pressable style={styles.addButton} onPress={navigation.navigate('ClothesForm')}><Text style={styles.buttonText}>+ Ajouter</Text></Pressable>
             <Text>Liste de vêtements disponibles :</Text>
             {loading ? (
                 <Text>Chargement en cours...</Text>
@@ -67,9 +68,17 @@ const ClothesListScreen = ({navigation}) => {
 export default ClothesListScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    backgroundColor: '#fff',
-  },
+    container: {
+      flex: 1,
+      padding: 10,
+      backgroundColor: '#fff',
+    },
+    addButton: {
+        borderRadius: 4,
+        padding: 4,
+        backgroundColor: 'lightblue'
+    },
+    buttonText: {
+        fontSize: 20
+    }
 });

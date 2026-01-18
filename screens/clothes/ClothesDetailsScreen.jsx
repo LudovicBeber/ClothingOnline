@@ -17,7 +17,7 @@ const ClothesDetailsScreen = ({route, navigation}) => {
             <View style={styles.buttonContainer}>
                 <Pressable 
                     style={styles.editButton} 
-                    // onPress={() => {navigation.navigate('AddMovie', movie)}}
+                    onPress={() => {navigation.navigate('ClothesForm', cloth)}}
                 >
                     <Text style={styles.buttonText}>Modifier</Text>
                 </Pressable>

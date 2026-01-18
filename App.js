@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ClothesListScreen from './screens/clothes/ClothesListScreen';
 import ClothesDetailsScreen from './screens/clothes/ClothesDetailsScreen';
+import ClothesFormScreen from './screens/clothes/ClothesFormScreen';
 
 export default function App() {
 
@@ -21,6 +22,11 @@ export default function App() {
         <Stack.Screen 
           name='ClothesDetails'
           component={ClothesDetailsScreen}
+        />
+
+        <Stack.Screen 
+          name='ClothesForm'
+          component={ClothesFormScreen}
         />
 
       </Stack.Navigator>
