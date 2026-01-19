@@ -1,11 +1,29 @@
-import { Pressable, StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View, Alert } from "react-native"
+import { deleteCloth } from "../../services/clothesService";
+import { useState } from "react";
 
 const ClothesDetailsScreen = ({route, navigation}) => {
 
+    const [error, setError] = useState("");
+
     const cloth = route.params || {};
     const clothRating = cloth.rating || {};
-    console.log(cloth);
-    
+
+    function handleDeleteCloth() {
+        
+        try {
+            deleteCloth(cloth.id);
+            showAlert();
+        } catch (error) {
+            setError(error)
+        }
+
+        navigation.navigate('ClothesList');
+
+    }
+
+    const showAlert = () => Alert.alert('Vêtement supprimé !');
+
     return (
         <View style={styles.container}>
             <Text>Détails de l'article :</Text>
@@ -23,11 +41,14 @@ const ClothesDetailsScreen = ({route, navigation}) => {
                 </Pressable>
                 <Pressable 
                     style={styles.deleteButton} 
-                    // onPress={() => {deleteMovieById(movie.id)}}
+                    onPress={handleDeleteCloth}
                 >
                     <Text style={styles.buttonText}>Supprimer</Text>
                 </Pressable>
             </View>
+            {error &&
+                <Text style={{ color: "red" }}>{error.message}</Text>
+            }
         </View>
     );
 

@@ -45,7 +45,7 @@ const ClothesListScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Pressable style={styles.addButton} onPress={navigation.navigate('ClothesForm')}><Text style={styles.buttonText}>+ Ajouter</Text></Pressable>
+            <Pressable style={styles.addButton} onPress={() => navigation.navigate('ClothesForm')}><Text style={styles.buttonText}>+ Ajouter</Text></Pressable>
             <Text>Liste de vêtements disponibles :</Text>
             {loading ? (
                 <Text>Chargement en cours...</Text>
